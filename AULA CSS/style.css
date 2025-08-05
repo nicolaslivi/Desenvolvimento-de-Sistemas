@@ -5,7 +5,7 @@
 
 /* Seletor de elemento */
 h3 {
-    color: deeppink;
+    color: red;
     font-size: 100px;
     font-weight: 900;
     text-align: center;
@@ -15,7 +15,7 @@ h3 {
 /* Utilizando Seletores de Classes */
 .texto {
     /* Altera a cor do texto */
-    color: brown;
+    color: red;
     /* Altera o tamnho do textp */
     font-size: xx-large;
     /* ALtera a posição do texto horizontalmente */
@@ -41,17 +41,16 @@ h3 {
 .box {
     /* Define a largura - vw */
     /* vw = tamanho da tela em largura */
-    width: vw;
+    width: 400px;
     /* Define a altura - vh */
     /* vh = tamanho da tela em altura */
-    height: vh;
+    height: 100px;
     /* Define o espaçamento externo - margem */
     margin: 15px 15px 15px 15px;
     /* Define o espaço interno - padding */
     padding: 10px;
     /* Define a borda do conteúdo */
-    border: 10px solid;
-    border-color: blue;
+    border: 5px solid;
 }
 
 /* section {
@@ -72,9 +71,31 @@ h3 {
     position: absolute;
     top: 10px;
     right: 10px;
+    color: white;
 }
 
 body {
-    background-color: gray;
-    color: azure;
+    background-color: rgb(192, 192, 192);
+    color: black;
+    /* Altera a imagem de fundo do elemento */
+    background-image: url(https://wallpapers.com/images/hd/cool-hd-logo-in-game-of-thrones-qhdelrxg3d2ftb1a.jpg);
+    /* Define a quantidade de repetições da imagem */
+    background-repeat: no-repeat;
+    /* Define o posicionamento da imagem */
+    /* background-position: top; */
+    /* Define o tamanho da imagem */
+    background-size: contain; /* pode ser escrito em px também, exemplo  */
+    background-size: cover;
+
+}
+
+.visuais {
+    background-color: red;
+    /* Opacidade do elemento */
+    opacity: 50%;
+    color: white;
+    /* adiciona sombra sendo - Y, X, BLUR, SPREAND */
+    box-shadow: -10px 5px 10px 10px;
+    /* Arredonda o elemento */
+    border-radius: 100%;
 }
