@@ -98,4 +98,16 @@ body {
     box-shadow: -10px 5px 10px 10px;
     /* Arredonda o elemento */
     border-radius: 100%;
+    /* trasnforma o elemento - rotacionar */
+    transform: rotate(1turn);
+    /* Adiciona uma transição */
+    transition: width 2.5s 2.5s, transform 5s;
+}
+
+.visuais:hover {
+    width: 500px;
+    height: 200px;
+    background-color: blue;
+    transform: rotate(10turn);
+    border-radius: 100%;
 }
