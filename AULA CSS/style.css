@@ -111,3 +111,8 @@ body {
     transform: rotate(10turn);
     border-radius: 100%;
 }
+
+.cursor {
+    /* Coloca o scroll no elemento */
+    overflow: scroll;
+}
