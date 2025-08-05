@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AULA CSS</title>
-    <!-- CSS Interno -->
-    <style>
-        h2 {
-            color: darkorchid;
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AULA CSS</title>
+        <!-- CSS Interno -->
+        <style>
+            h2 {
+                color: darkorchid;
+            }
+        </style>
+        <!-- CSS Externo - Conectado a página style.css -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
 
-        <!-- CSS Inline - em linha -->
-        <h1 
-            style="color: blue;"
-            >
-            Estilizando meu título com CSS em LINHA
-        </h1>
-        <p style="
-            font-size: 15px;
-            background-color: green; 
-            color: white;"
-            >
-            Estilizando meu paragráfo com CSS em LINHA
-        </p>
+            <!-- CSS Inline - em linha -->
+            <h1 
+                style="color: blue;"
+                >
+                Estilizando meu título com CSS em LINHA
+            </h1>
+            <p style="
+                font-size: 15px;
+                background-color: green; 
+                color: white;"
+                >
+                Estilizando meu paragráfo com CSS em LINHA
+            </p>
 
-        <h2>CSS Interno!</h2>
- 
-</body>
+            <h2>
+                CSS Interno!
+            </h2>
+
+            <h3>
+                CSS Externo! Com Seletor de Elemento
+            </h3>
+
+            <p>Ordem de leitura dos modelos de CSS
+                <ol>
+                    <b>
+                        <li>CSS em Linha</li>
+                        <li>CSS Interno</li>
+                        <li>CSS Externo</li>
+                    </b>
+                    
+                </ol>
+            </p>
+
+            <!-- Utilizando CSS com seletor de Classes -->
+            <p id="texto">
+                Seletor de ID
+            </p>
+            <p class="texto">
+                Seletor de Classe
+            </p>
+
+            <section class="box position">
+                <h1>
+                    Layout
+                </h1>
+            </section>
+
+            <h5 class="position2">
+                Teste Position
+            </h5>
+    
+    </body>
+        <footer class="box position">
+            <p>© 2025 Nicolas Rodolfo Liviéra</p>
+        </footer>
+</html>
