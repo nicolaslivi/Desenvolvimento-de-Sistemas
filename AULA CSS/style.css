@@ -115,4 +115,7 @@ body {
 .cursor {
     /* Coloca o scroll no elemento */
     overflow: scroll;
+    /* Muda o cursor do mouse */
+    cursor: progress;
+    justify-content:
 }
