@@ -1,0 +1,97 @@
+/* definindo a minha margem */
+*{
+    margin: 0%;
+    font-family: "Open Sans", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+main {
+    width: vw;
+    height: vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    width: 1172.95px;
+    justify-content: start;
+    align-items: start;
+    margin-top: 50px;
+}
+
+body {
+    width: vw;
+    height: vh;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: linear-gradient(to bottom, white, black);
+    color: white;
+    width: vw;
+    height: 75px; */
+}
+
+.tituloPrincipalBox {
+    /* Forma da figura */
+    /* Define a largura - vw */
+    width: 1150px;
+    /* Define a altura - vh */
+    height: 100px;
+    /* Define o espaçamento externo - margem */
+    margin: 15px 15px 15px 15px;
+    /* Define o espaço interno - padding */
+    padding: 10px;
+    /* Define a borda do conteúdo */
+    border: 1px solid;
+    /* arredonda a borda */
+    border-radius:  20px;
+    /* cor da borda */
+    border-color: black;
+    /* colocar blur */
+    backdrop-filter: blur(20px);
+    /* cor do blur */
+    background-color: rgb(234, 234, 234);
+    /* tamanho da fonte */
+    font-size: 64px;
+    /* fixar */
+    position: sticky;
+}
+
+.tituloPrincipalMargin {
+    /* Posisionando */
+     /* A forma de posicionamento */
+     display: flex;
+     /* Posicionar verticalmente */
+     align-items: center;
+     /* Posicionar de forma horizontal */
+     justify-content: center;
+}
+
+.estrelaOpaca {
+    width: 40px;
+    margin-right: 50px;
+}
+
+.casa1 {
+    height: 800px;
+    width: 575px;
+}
+
+#casa1 {
+    background-size: 400px;
+    border-radius: 20px;
+    height: 400px;
+    width: 575px;
+}
+
