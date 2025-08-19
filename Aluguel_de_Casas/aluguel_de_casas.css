@@ -4,6 +4,7 @@
     font-family: "Open Sans", sans-serif;
 }
 
+
 header {
     display: flex;
     justify-content: center;
@@ -11,36 +12,31 @@ header {
     background-color: white;
 }
 
+
 main {
-    width: vw;
-    height: vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
 section {
+    flex-direction: column;
     display: flex;
-    width: 1172.95px;
+    width: 586.475px;
     justify-content: start;
     align-items: start;
-    margin-top: 50px;
 }
 
-body {
-    width: vw;
-    height: vh;
-}
 
 footer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* background-image: linear-gradient(to bottom, white, black);
-    color: white;
-    width: vw;
-    height: 75px; */
+    align-items: end;
+    height: 200px;
+    width: 100vw;
 }
+
 
 .tituloPrincipalBox {
     /* Forma da figura */
@@ -65,8 +61,10 @@ footer {
     /* tamanho da fonte */
     font-size: 64px;
     /* fixar */
-    position: sticky;
+    position: relative;
+    top: 0px;
 }
+
 
 .tituloPrincipalMargin {
     /* Posisionando */
@@ -78,20 +76,235 @@ footer {
      justify-content: center;
 }
 
+
 .estrelaOpaca {
     width: 40px;
     margin-right: 50px;
 }
 
+
+.naoPassaNaFrente {
+    position: relative;
+    z-index: -1;
+}
+
+
+/* -----------------------------CASA 1------------------------------------ */
 .casa1 {
-    height: 800px;
-    width: 575px;
-}
-
-#casa1 {
-    background-size: 400px;
     border-radius: 20px;
-    height: 400px;
-    width: 575px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa1.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
 }
 
+
+.casa1-container {
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-right: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+}
+
+
+.casa1-container:hover .casa1 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+   
+/* -----------------------------CASA 1------------------------------------ */
+
+
+/* -----------------------------CASA 2------------------------------------ */
+.casa2 {
+    border-radius: 20px;
+    height: 800px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa2-container {
+    height: 800px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+}
+
+
+.casa2-container:hover .casa2 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 2------------------------------------ */
+
+
+/* -----------------------------CASA 3------------------------------------ */
+.casa3 {
+    border-radius: 20px;
+    height: 800px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa3-container {
+    height: 800px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+
+
+}
+
+
+.casa3-container:hover .casa3 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 3------------------------------------ */
+
+
+/* -----------------------------CASA 4------------------------------------ */
+.casa4 {
+    border-radius: 20px;
+    height: 800px; /* Defina a altura desejada opaa */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa4-container {
+    height: 800px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+
+
+}
+
+
+.casa4-container:hover .casa4 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 4------------------------------------ */
+
+
+/* -----------------------------CASA 5------------------------------------ */
+.casa5 {
+    border-radius: 20px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa5-container {
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+
+
+}
+
+
+.casa5-container:hover .casa5 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 5------------------------------------ */
+
+
+/* -----------------------------CASA 6------------------------------------ */
+.casa6 {
+    border-radius: 20px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa6.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa6-container {
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+
+
+}
+
+
+.casa6-container:hover .casa6 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 6------------------------------------ */
+
+
+/* -----------------------------CASA 7------------------------------------ */
+.casa7 {
+    border-radius: 20px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    background-image: url(./assests/casa7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+
+.casa7-container {
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    margin-top: 20px; /* Defina a margem desejada */
+    overflow: hidden; /* Impede que a imagem ampliada ultrapasse o contêiner */
+    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 20px;
+
+
+}
+
+
+.casa7-container:hover .casa7 {
+    transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+/* -----------------------------CASA 7------------------------------------ */
