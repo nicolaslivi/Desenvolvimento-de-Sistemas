@@ -125,7 +125,7 @@ footer {
     border-radius: 20px;
     height: 800px; /* Defina a altura desejada */
     width: 575px; /* Defina a largura desejada */
-    background-image: url(./assests/casa2.webp);
+    background-image: url(./assests/casa2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; /* A imagem preenche o contêiner */
@@ -219,7 +219,7 @@ footer {
     border-radius: 20px;
     height: 400px; /* Defina a altura desejada */
     width: 575px; /* Defina a largura desejada */
-    background-image: url(./assests/casa5.jpg);
+    background-image: url(./assests/casa5.webp);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; /* A imagem preenche o contêiner */
@@ -251,7 +251,7 @@ footer {
     border-radius: 20px;
     height: 400px; /* Defina a altura desejada */
     width: 575px; /* Defina a largura desejada */
-    background-image: url(./assests/casa6.webp);
+    background-image: url(./assests/casa6.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; /* A imagem preenche o contêiner */
@@ -283,7 +283,7 @@ footer {
     border-radius: 20px;
     height: 400px; /* Defina a altura desejada */
     width: 575px; /* Defina a largura desejada */
-    background-image: url(./assests/casa7.jpg);
+    background-image: url(./assests/casa7.webp);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; /* A imagem preenche o contêiner */
