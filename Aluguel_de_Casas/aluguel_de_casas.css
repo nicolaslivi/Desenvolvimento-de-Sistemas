@@ -163,8 +163,14 @@ p {
     background-size: cover;
     width: 100%; /* A imagem preenche o contêiner */
     display: block; /* Garante que a imagem se comporte como um bloco */ 
-    background-image: linear-gradient(to right, color black, color black);
+    background-image: linear-gradient(to top, black, white 60%), url(./assests/casa1.webp);
+    background-blend-mode: multiply;
 }
+
+/* .gradiente {
+    background-image: linear-gradient(to top, black, white 25%);
+    border-radius: 20px;
+} */
    
 /* -----------------------------CASA 1------------------------------------ */
 
