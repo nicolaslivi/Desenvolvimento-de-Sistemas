@@ -37,6 +37,36 @@ footer {
     width: 100vw;
 }
 
+button {
+    border-radius: 20px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+    border: none;
+    margin: none;
+    padding: none;
+}
+
+a {
+    border-radius: 20px;
+    height: 400px; /* Defina a altura desejada */
+    width: 575px; /* Defina a largura desejada */
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+p {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 16px;
+}
 
 .tituloPrincipalBox {
     /* Forma da figura */
@@ -88,6 +118,13 @@ footer {
     z-index: -1;
 }
 
+.iconeVoltar {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    align-self: start;
+}
+
 
 /* -----------------------------CASA 1------------------------------------ */
 .casa1 {
@@ -115,6 +152,18 @@ footer {
 
 .casa1-container:hover .casa1 {
     transform: scale(1.75); /* Aumenta a imagem em 75% */
+}
+
+.casa1detalhada {
+    border-radius: 20px;
+    width: 450px;
+    height: 325px;
+    background-image: url(./assests/casa1.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* A imagem preenche o contêiner */
+    display: block; /* Garante que a imagem se comporte como um bloco */ 
+    background-image: linear-gradient(to right, color black, color black);
 }
    
 /* -----------------------------CASA 1------------------------------------ */
