@@ -41,9 +41,6 @@ button {
     border-radius: 20px;
     height: 400px; /* Defina a altura desejada */
     width: 575px; /* Defina a largura desejada */
-    border: none;
-    margin: none;
-    padding: none;
 }
 
 a {
@@ -125,6 +122,15 @@ p {
     align-self: start;
 }
 
+.entreEmContato{
+    width: 150px;
+    height: 50px;
+    border: 2px solid;
+    border-color: black;
+    background-color: rgb(79, 76, 76);
+    color: white;
+    border-radius: 20px;
+}
 
 /* -----------------------------CASA 1------------------------------------ */
 .casa1 {
