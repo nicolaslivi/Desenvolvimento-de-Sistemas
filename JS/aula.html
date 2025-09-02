@@ -12,9 +12,42 @@
     <h1>TESTANDO JAVASCRIPT</h1>
     <H2>Fazendo a integração no HTML</H2>
 
+    <p id="paragrafo">Script escreve olá: </p>
+    <p id="id">Seletor de ID</p>
+    <p class="classe">Seletor de Classe 1</p>
+    <p class="classe">Seletor de Classe 2</p>
+    <h1 id="text">Text</h1>
+
     <script>
         // usar nesse lugar
-        console.log("mensagem");
+        console.log("Mensagem");
+        console.warn("Aviso!");
+        console.error("Erro!");
+        console.info("Informação!");
+
+        // Manipulação do HTML (DOM - Document Object Model): 
+        // É a representação em árvore do seu documento HTML no navegador.
+        // É uma interface de programação (API) que permite linguagens de script (como JavaScript) acessem e manipulem o conteúdo de documentos HTML e XML.
+        document.write('Olá');
+
+        // Selecionando elementos do DOM:
+        // Seleção de elementos por ID
+        const p = document.getElementById('paragrafo');
+        console.log(p);
+
+        // Seleção de elementos por CSS
+        // por ID
+        const id = document.querySelector('#id');
+        console.log(id);
+        // por classe
+        const classe = document.querySelector('.classe');
+        console.log(classe);
+        const classes = document.querySelectorAll('.classe');
+        console.log(classes[1]);
+        console.log(id.innerText);
+
+        //manipulação 
+
     </script>
     <!-- <script src="aula.js"></script> -->
 </body>
