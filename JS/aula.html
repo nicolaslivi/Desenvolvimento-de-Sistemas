@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de JavaScript</title>
     <script>
-        // não utilizar esse lugar
+        // não utilizar nesse lugar
     </script>
 </head>
 <body>
@@ -17,6 +17,9 @@
     <p class="classe">Seletor de Classe 1</p>
     <p class="classe">Seletor de Classe 2</p>
     <h1 id="text">Text</h1>
+    <div id="div">
+        Texto de Exemplo
+    </div>
 
     <script>
         // usar nesse lugar
@@ -46,7 +49,17 @@
         console.log(classes[1]);
         console.log(id.innerText);
 
-        //manipulação 
+        //manipulação de HTML
+        let text = document.getElementById('text');
+        console.log(text.textContent);
+        //altera somente o texto
+        text.textContent = "Mudouu! Ω";
+
+        //altera o HTML de dentro do elemento
+        let div = document.getElementById('div');
+        console.log(div.innerHTML);
+        div.innerHTML = "<h3>Mudou para h3 ༼ つ ◕_◕ ༽つ</h3> <button>Botão</button>"
+        console.log(div.innerHTML);
 
     </script>
     <!-- <script src="aula.js"></script> -->
