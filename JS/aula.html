@@ -20,7 +20,16 @@
     <div id="div">
         Texto de Exemplo
     </div>
-
+    <br>
+    <img width=240vw height="240vh" id="dog" src="https://cdn.dicionariopopular.com/imagens/numero-nove.gif" alt="Dog dançando">
+    <br>
+    <br>
+    <button id="fundo">Trocar a cor de fundo</button>
+    <br>
+    <br>
+    <button onclick="trocar()">Troca a cor de fundo 2</button>
+    <br>
+    <br>
     <script>
         // usar nesse lugar
         console.log("Mensagem");
@@ -60,6 +69,45 @@
         console.log(div.innerHTML);
         div.innerHTML = "<h3>Mudou para h3 ༼ つ ◕_◕ ༽つ</h3> <button>Botão</button>"
         console.log(div.innerHTML);
+
+        //manipulação de atributos
+        let ovo = document.getElementById('dog');
+        console.log(dog.getAttribute('src'));
+        dog.setAttribute('src', "https://cdn.dicionariopopular.com/imagens/numero-sete.gif");
+        dog.setAttribute('alt', "Gato com medo do pepino");
+        //remover atributos
+        dog.removeAttribute('alt');
+
+        // manipulação do css
+        dog.style.borderRadius = '50px';
+        dog.style.border = '3px solid black';
+
+        // Eventos
+        // O que são eventos?
+        // Ações que acontecem no navegador (cliques, passar o mouse, etc)
+        // manipulando eventos
+        let fundo = document.getElementById('fundo');
+        let troca = true;
+        fundo.addEventListener('click', () => {
+            if(troca) {
+                document.body.style.backgroundColor = 'green';
+                troca = false;
+            } else {
+                document.body.style.backgroundColor = "white";
+                troca = true;
+            }
+        });
+
+        let troca1 = true;
+        function trocar(){
+            if(troca1) {
+                document.body.style.backgroundColor = 'blue';
+                troca1 = false;
+            } else {
+                document.body.style.backgroundColor = "yellow";
+                troca1 = true;
+            }
+        }
 
     </script>
     <!-- <script src="aula.js"></script> -->
