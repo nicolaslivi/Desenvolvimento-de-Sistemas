@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+
+    <h1 id="titulo">Exercício 1 - Praticando JS</h1>
+
+    <p id="paragrafo">- Deveríamos regressar - insistiu Gared quando os bosques
+        começaram a escurecer ao redor do grupo. - Os selvagens
+        estão mortos.
+        - Os mortos o assustam? - perguntou Sor Waymar Royce com
+        não mais do que uma sugestão de sorriso no rosto.
+        Gared não mordeu a isca. Era um homem velho, com mais de
+        cinquenta anos, e vira os nobres chegar e partir.
+        - Um morto é um morto - respondeu. - Nada temos a tratar
+        com os mortos.
+        - Mas estão mortos? - perguntou Royce com suavidade. - Que
+        prova temos disso?
+        - Will os viu - disse Gared. - Se ele diz que estão mortos, é
+        prova suficiente para mim.
+        Will já sabia que o arrastariam para a disputa mais cedo ou
+        mais tarde. Desejou que tivesse sido mais tarde.
+        - Minha mãe disse-me que os mortos não cantam - contou
+        Will.
+        - Minha ama de leite disse a mesma coisa, Will - respondeu
+        Royce. - Nunca acredite em nada do que ouvir junto à mama
+        de uma mulher. Há coisas a aprender mesmo com os mortos -
+        sua voz gerou ecos, alta demais na penumbra da floresta.
+        - Temos perante nós uma longa cavalgada - salientou Gared. -
+        Oito dias, talvez nove. E a noite está para cair.
+        Sor Waymar Royce olhou o céu de relance, com desinteresse.
+        - Isso acontece todos os dias por esta hora. Você perde a
+        virilidade com o escuro, Gared?
+        Will via o aperto em torno da boca de Gared, a ira só a custo
+        reprimida nos olhos que espreitavam sob o espesso capuz
+        negro de seu manto. Ele passara quarenta anos na Patrulha
+        da Noite, em homem e em rapaz, e não estava acostumado a
+        ser desvalorizado. Mas era mais do que isso. Will conseguia
+        detectar no homem mais velho algo mais sob o orgulho ferido.
+        Era possível sentir-lhe o gosto: uma tensão nervosa que se
+        aproximava perigosamente do medo.
+        Will partilhava o desconforto do outro homem. Estava havia
+        quatro anos na Muralha. Da primeira vez que fora enviado
+        para lá, todas as velhas histórias lhe tinham acorrido ao
+        cérebro, e suas entranhas se tinham feito em água. Era agora
+        um veterano de cem patrulhas, e a escura e infinita terra
+        selvagem a que os sulistas chamavam floresta assombrada já
+        não tinha terrores para si.
+        Até aquela noite. Algo era diferente então. Havia naquela
+        escuridão algo de cortante que lhe fazia eriçar os pelos da
+        nuca. Cavalgavam havia nove dias, para norte e noroeste, e
+        depois de novo para norte, cada vez para mais longe da
+        Muralha, seguindo sem desvios a trilha de um bando de
+        salteadores selvagens. Cada dia fora pior que o anterior.
+        Aquele tinha sido o pior de todos. Um vento frio soprava do
+        norte e fazia as árvores sussurrarem como coisas vivas.
+        Durante todo o dia
+        Will tivera uma sensação que era como se alguma coisa o
+        estivesse observando, algo frio e implacável que não gostava
+        dele. Gared também sentira. Will nada desejava com tanta
+        força como cavalgar a toda pressa de volta à segurança da
+        Muralha, mas este não era um sentimento que se pudesse
+        partilhar com um comandante.
+        Especialmente com um comandante como aquele.
+        Sor Waymar Royce era o filho mais novo de uma Casa antiga
+        com demasiados herdeiros. Era um jovem bem-apessoado de
+        dezoito anos, de olhos cinzentos, elegante e esbelto como uma
+        faca. Montando em seu enorme corcel de batalha negro, o
+        cavaleiro elevava-se bem acima de Will e Gared, montados
+        nos seus garranos de menores dimensões. Trajava botas
+        negras de couro, calças negras de lã, luvas negras de pele de
+        toupeira e uma cintilante cota de malha negra e flexível por
+        cima de várias camadas de lã negra e couro fervido. Sor
+        Waymar era um Irmão Juramentado da Patrulha da Noite
+        havia menos de meio ano, mas ninguém poderia dizer que não
+        se preparara para a sua vocação. Pelo menos no que dizia
+        respeito ao guarda-roupa.
+        O manto constituía a consumação da sua glória; zibelina,
+        espessa e negra, suave como pele. "Aposto que foi ele próprio
+        quem as matou todas, ah, pois aposto", dissera Gared na
+        caserna, entre os vapores do vinho, “torceu-lhes as cabecinhas
+        e arrancou-as, o nosso poderoso guerreiro". A gargalhada fora
+        partilhada por todos.
+        </p>
+
+    
+        <button id="botao">Mude aqui</button>
+    
+    <script>
+        let titulo = document.getElementById('titulo');
+        console.log(titulo);
+        let paragrafo = document.getElementById('paragrafo');
+        let texto = paragrafo.textContent;
+        console.log(paragrafo);
+        let troca = true
+        let botao = document.getElementById('botao');
+        botao.addEventListener('click', () => {
+            if(troca){
+                titulo.innerHTML = "mudou o titulo";
+                paragrafo.innerHTML = "<img src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJUjKpX4xwrcGtmG4DfmSL3zelKQW3rrofPA&s' alt ='imagem'>";
+                troca = false;
+            } else {
+                paragrafo.innerHTML = texto;
+                titulo.innerText = 'Exercício 1 - Praticando JS'
+                troca = true;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    
+    <div style="height: 200px; width:200px;background-color: green;" id="div"></div>
+    <br>
+    <button id="botao">Mude aqui</button>
+    <script>
+        let div = document.getElementById('div');
+        let troca = true;
+        let botao = document.getElementById('botao');
+        console.log(botao);
+        console.log(div);
+        botao.addEventListener('click', () => {
+            if(troca){
+                div.style.backgroundColor = 'blue';
+                troca = false;
+            } else {
+                div.style.backgroundColor = 'green';
+                troca = true;
+            }
+        });
+    </script>
+</body>
+</html>
