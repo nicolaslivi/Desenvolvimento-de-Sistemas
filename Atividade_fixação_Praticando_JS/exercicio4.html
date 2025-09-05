@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <h1 style="display: flex; align-items: center; justify-content: center; margin: 0%;">Contador</h1>
+
+    <h1 style="display: flex; align-items: center; justify-content: center; font-size: 200px; margin: 0%;" id="numero">0</h1>
+
+    <button style="margin-left: 600px; background-color: green; color: white;" id="mais">Mais</button>
+    <button style="margin-left: 50px; background-color: red; color: white;" id="menos">Menos</button>
+    
+    <script>
+        let numero = document.getElementById('numero');
+        let botaoMais = document.getElementById('mais');
+        let botaoMenos = document.getElementById('menos');
+        let contador = 0;
+        botaoMais.addEventListener('click', () => {
+                contador++;
+                numero.innerHTML = contador;
+        });
+        botaoMenos.addEventListener('click', () => {
+            if(contador == 0){
+                
+            } else {
+                contador--;
+                numero.innerHTML = contador;
+            }
+        });
+    </script>
+</body>
+</html>

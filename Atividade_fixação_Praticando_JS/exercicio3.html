@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 3</title>
 </head>
 <body>
+    <p id="paragrafo" style="height: 108px; width: 791px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi blanditiis, maxime, iste tempore rerum doloribus excepturi minima ducimus, 
+        quibusdam numquam unde quam cupiditate aperiam repellendus vel odit porro eaque alias. Lorem ipsum dolor sit amet consectetur 
+        adipisicing elit. Veritatis nesciunt ut, repellat, dolore repudiandae deserunt expedita aperiam quisquam, incidunt aut animi 
+        cupiditate fugit numquam ipsam inventore quibusdam. Sunt, ullam eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Culpa est sunt quod velit similique iusto voluptas numquam magni quisquam sit ipsam, maxime aliquam, saepe tempora minima. 
+        Possimus ab voluptates aliquam.</p>
+
+        <button id="botao">Botão</button>
     
+    <script>
+        let paragrafo = document.getElementById('paragrafo');
+        const paragrafoSemAlteracao = paragrafo.textContent;
+        let botao = document.getElementById('botao');
+        let esconde = true;
+        botao.addEventListener('click', () => {
+            if(esconde) {
+                paragrafo.innerHTML = '<p></p>';
+                esconde = false;
+            } else {
+                paragrafo.innerHTML = paragrafoSemAlteracao;
+                esconde = true;
+            }
+        })
+    </script>
 </body>
 </html>
