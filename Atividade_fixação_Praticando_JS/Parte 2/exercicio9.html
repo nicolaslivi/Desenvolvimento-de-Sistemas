@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <h1 id="titulo">Mudando a cor de fundo da página</h1>
+
+    <button id="verde">Cor Verde</button>
+    <button id="azul">Cor Azul</button>
+
+    <script>
+        let corVerde = document.getElementById("verde");
+        let corAzul = document.getElementById("azul");
+        let titulo = document.getElementById("titulo");
+
+        corVerde.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'green';
+            titulo.style.color = 'white';
+        });
+
+        corAzul.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'blue';
+            titulo.style.color = 'white';
+        });
+    </script>
+</body>
+</html>

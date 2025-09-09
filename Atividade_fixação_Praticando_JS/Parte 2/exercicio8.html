@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <h1>Calculadora de soma</h1>
+
+    <p>Digite o primeiro número</p>
+    <input type="number" id="valor1">
+    <p>Digite o segundo número</p>
+    <input type="number" id="valor2">
+    <br>
+    <br>
+    <button onclick="somar()">Somar</button>
+
+    <p id="resultado"></p>
+    
+    <script>
+        function somar(){
+            let valor1 = Number(document.getElementById("valor1").value);
+            let valor2 = Number(document.getElementById("valor2").value);
+
+            let resultado = valor1 + valor2; 
+
+            document.getElementById("resultado").innerText = "Resultado: " + String(resultado);
+        }
+    </script>
+</body>
+</html>

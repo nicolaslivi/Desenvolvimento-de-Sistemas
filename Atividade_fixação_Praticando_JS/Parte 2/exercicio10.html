@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <div style="width: 791px; height: 480px;">
+        <br>
+        <br>
+        <p id="texto">
+            A programação é uma área que mistura lógica, criatividade e persistência.
+            Uma curiosidade interessante é que muitas linguagens modernas ainda carregam conceitos de décadas atrás.
+            Por exemplo, a linguagem C, criada em 1972, influenciou diretamente Java, Python, JavaScript e tantas outras.
+            Isso mostra como ideias antigas podem se manter extremamente relevantes até hoje.
+            Outro detalhe curioso é que computadores só entendem binário, zeros e uns, mas nós escrevemos em linguagens de alto nível.
+            Essas linguagens são traduzidas por compiladores ou interpretadores, que fazem a ponte entre o humano e a máquina.
+            Um erro simples, como esquecer um ponto e vírgula, pode travar todo um programa.
+            Por isso, programadores aprendem rapidamente a ter paciência e atenção aos detalhes.
+            O famoso “Hello, World!” é geralmente o primeiro código escrito em qualquer linguagem.
+            Essa tradição começou em 1974, em um livro sobre a linguagem C.
+            A partir daí, virou quase um ritual de iniciação para qualquer iniciante.
+            Outra curiosidade é que a primeira programadora da história foi Ada Lovelace, no século XIX.
+            Ela escreveu algoritmos para a Máquina Analítica de Charles Babbage, antes mesmo dos computadores existirem.
+            Hoje, a programação está presente em praticamente tudo: celulares, carros, eletrodomésticos e até geladeiras.
+            Muitas vezes, o código que você escreve nunca é visto por ninguém, mas impacta milhares de usuários.
+            Outro ponto fascinante é que programar ensina a pensar de forma estruturada e resolver problemas passo a passo.
+            Mesmo erros podem ser valiosos, já que cada “bug” ajuda a aprender algo novo.
+            Existe até o termo “debugar”, que significa encontrar e corrigir falhas no código.
+            Curiosamente, a palavra surgiu quando um inseto real travou um computador nos anos 40.
+            Assim, a programação é uma mistura de ciência, arte e até um pouco de história inusitada.
+        </p>
+    </div>
+    
+    <button id="botao">Troca</button>
+
+    <style>
+        .classe{
+            color: white;
+            font-size: large;
+            background-color: green;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 5px 5px 10px black;
+            margin: 0%;
+            position: fixed;
+        }
+    </style>
+    <script>
+        let texto = document.getElementById("texto");
+        let botao = document.getElementById("botao");
+        let clicado = true;
+
+        botao.addEventListener('click', () => {
+            if(clicado){
+                texto.classList.add("classe");
+                console.log(texto);
+                clicado = false;
+            } else {
+                texto.classList.remove("classe");
+                clicado = true;
+            }
+        });
+    </script>
+</body>
+</html>

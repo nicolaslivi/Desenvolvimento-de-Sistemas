@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <div>
+        <img src="./assets/homem-dancando.webp" alt="" id="img">
+    </div>
+    <br>
+    <button id="aumenta">Aumenta</button>
+    <button id="diminiu">Diminui</button>
+    <script>
+        let botaoAumenta = document.getElementById("aumenta");
+        let botaoDiminiu = document.getElementById("diminiu");
+        let img = document.getElementById("img");
+       
+        botaoAumenta.addEventListener('click', () => {
+            img.style.width = "650px";
+        });
+        botaoDiminiu.addEventListener('click', () => {
+            img.style.width = "150px";
+        });
+
+    </script>
+</body>
+</html>
