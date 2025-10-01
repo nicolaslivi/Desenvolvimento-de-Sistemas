@@ -52,20 +52,30 @@ app.get('/produtos/pesquisar', (req, res) => {
 
 //atualizar o preço de um produto
 app.patch('/produtos/:id', (req, res) => {
+    //recebo o id na req
     let id = parseInt(req.params.id);
+    //recebo um novo preço a partir do body
     let novoPreco = req.body;
-
+    //crio um index para encontrar o id
     const index = produtos.findIndex(p => p.id === id);
-
+    //verifico se o id é válido
     if(index == -1){
         res.status(404).send('Produto nao encontrado');
+        //verifico se o preço é válido
     } else if (!novoPreco.preco){
         res.status(400).send('Necessario informar preco');
     }
-
+    //passo o novo preço para o index desejado no array produtos
     produtos[index].preco = novoPreco.preco;
-
+    //retorno ao usuário
     res.status(200).send(produtos[index]);
+});
+
+//adicionar categoria
+app.put('/produtos/:id', (req, res) => {
+    let id = parseInt(req.params.id);
+
+    let 
 });
 
 //aparece no terminal com o link para abrir o servidor na web
