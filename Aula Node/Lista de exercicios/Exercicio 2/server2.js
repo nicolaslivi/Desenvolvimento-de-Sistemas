@@ -73,9 +73,25 @@ app.patch('/produtos/:id', (req, res) => {
 
 //adicionar categoria
 app.put('/produtos/:id', (req, res) => {
+    //recebe um id como parâmetro
     let id = parseInt(req.params.id);
-
-    let 
+    //recebe os novos dados a partir do corpo da req
+    let novosDados = req.body;
+    //cria um index para achar o id
+    const index = produtos.findIndex(p => p.id === id);
+    //verifica se o id é válido
+    if(index == -1){
+        res.status(404).send('Produto nao encontrado');
+        //verifica se todas as informações foram preenchidas
+    } else if(!novosDados.nome || !novosDados.preco || !novosDados.emEstoque || !novosDados.categoria) {
+        res.status(400).send('Necessario informar: nome, preco, emEstoque e categoria');
+    }
+    //cria um novo produto com as novas informações
+    let produtoNovo = {id: id, nome: novosDados.nome, preco: novosDados.preco, emEstoque: novosDados.emEstoque, categoria: novosDados.categoria};
+    //passa o novo produto para o id escolhido
+    produtos[index] = produtoNovo;
+    //retorna o produto atualizado ao usuário
+    res.status(201).send(produtos[index]);
 });
 
 //aparece no terminal com o link para abrir o servidor na web
