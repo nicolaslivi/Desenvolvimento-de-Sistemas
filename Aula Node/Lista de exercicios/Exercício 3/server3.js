@@ -22,6 +22,12 @@ app.post('/posts', (req, res) => {
     if(!novoPost.titulo || !novoPost.conteudo || !novoPost.autor){
         res.status(400).send('Necessario informar titulo, conteudo e autor para criar um post!');//status 400- bad request (má requisição)
     }
+    //adiciona um novo id seguro no post criado
+    novoPost.id = nextId++;
+    //adiciona o novo post no array de posts
+    posts.push(novoPost);
+    //retorna o novo com o post criado
+    res.status(201).send(posts);//status 201- criado
 });
 
 //aparece no terminal com o link para abrir o servidor na web
