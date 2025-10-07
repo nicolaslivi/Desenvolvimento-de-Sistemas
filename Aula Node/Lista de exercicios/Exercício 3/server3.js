@@ -44,6 +44,27 @@ app.get('/posts/autor/:autor', (req, res) => {
     res.status(302).send(autoresEncontrados);
 });
 
+//atualizar conteúdo de um post
+app.patch('/posts/:id', (req, res) => {
+    //recebo o id como parâmetro
+    let id = parseInt(req.params.id);
+    //recebo o novo conteudo no corpo da req
+    let novoConteudo = req.body;
+    //crio um index que verifica qual o id de parâmetro dentro do meu array
+    const index = posts.findIndex(p => p.id === id);
+    //verifico se o id é válido
+    if(index == -1){
+        res.status(404).send('Post nao encontrado!');//404- not found
+    //verifico se possui um novo conteudo
+    } else if(!novoConteudo){
+        res.status(400).send('Necessario informar conteudo');//400- bad request
+    }
+    //adiciono o novo conteudo no array posts
+    posts[index].conteudo = novoConteudo.conteudo;
+    //retorno o novo post com o novo conteudo
+    res.status(200).send(posts[index]);//200- ok
+});
+
 //aparece no terminal com o link para abrir o servidor na web
 app.listen(port, () => {
     console.log(`O servidor está rodando em http://localhost:${port}`);
