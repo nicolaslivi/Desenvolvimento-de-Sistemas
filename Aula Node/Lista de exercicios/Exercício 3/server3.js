@@ -30,6 +30,20 @@ app.post('/posts', (req, res) => {
     res.status(201).send(posts);//status 201- criado
 });
 
+//buscando posts por autor
+app.get('/posts/autor/:autor', (req, res) => {
+    //pega o nome do autor usando o query na URL
+    let nomeAutor = req.params.autor.toLowerCase();
+    //verifica se esse nome está no array
+    if(!nomeAutor){
+        res.status(404).send('Autor nao encontrado!');//404- nao encontrado
+    }
+    //verifica dentro o array 'posts' os nomes de autores compatíveis
+    let autoresEncontrados = posts.filter(a => a.autor.toLowerCase() == nomeAutor);
+    //mostra um array apenas com os autores pesquisados
+    res.status(302).send(autoresEncontrados);
+});
+
 //aparece no terminal com o link para abrir o servidor na web
 app.listen(port, () => {
     console.log(`O servidor está rodando em http://localhost:${port}`);
