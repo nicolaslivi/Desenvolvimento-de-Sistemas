@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const port = 3306;
+const port = 3000;
 
 
 
-//aparece no terminal com o link para abrir o servidor na web
-app.listen(port, () => {
-    console.log(`O servidor está rodando em http://localhost:${port}`);
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
+app.listen(port, () => console.log(`Rodando aqui http://localhost${port}!`));
