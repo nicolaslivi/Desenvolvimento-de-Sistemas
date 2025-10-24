@@ -63,4 +63,61 @@ app.post('/tarefas', async (req, res) => {
     }
   });
 
+  app.put('/tarefas/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+  
+    const { titulo, descricao, concluida } = req.body;
+  
+    if (isNaN(id)) {
+      return res.status(400).send('ID inválido. O ID deve ser um número.');
+    }
+  
+    if (titulo === undefined && descricao === undefined && concluida === undefined) {
+      return res.status(400).send('Todos os campos (título, descrição e concluída) são obrigatórios para esta atualização.');
+    }
+  
+    try {
+      const [existingRows] = await db.query('SELECT * FROM tarefas WHERE id = ?', [id]);
+      if (existingRows.length === 0) {
+        return res.status(404).send('Tarefa não encontrada para atualização.');
+      }
+  
+      const query = 'UPDATE tarefas SET titulo = ?, descricao = ?, concluida = ? WHERE id = ?';
+      const params = [titulo, descricao, concluida, id];
+  
+      const [result] = await db.query(query, params);
+  
+      if (result.affectedRows > 0) {
+        const [updatedRows] = await db.query('SELECT * FROM tarefas WHERE id = ?', [id]);
+        res.json(updatedRows[0]);
+      } else {
+        res.status(200).send('Tarefa atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
+      }
+    } catch (error) {
+      console.error(`Erro ao atualizar tarefa com ID ${id}:`, error);
+      res.status(500).send('Erro interno do servidor ao atualizar tarefa.');
+    }
+  });
+
+  app.delete('/tarefas/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+  
+    if (isNaN(id)) {
+      return res.status(400).send('ID inválido. O ID deve ser um número.');
+    }
+  
+    try {
+      const [result] = await db.query('DELETE FROM tarefas WHERE id = ?', [id]);
+  
+      if (result.affectedRows > 0) {
+        res.status(204).send();
+      } else {
+        res.status(404).send('Tarefa não encontrada para exclusão.');
+      }
+    } catch (error) {
+      console.error(`Erro ao excluir tarefa com ID ${id}:`, error);
+      res.status(500).send('Erro interno do servidor ao excluir tarefa.');
+    }
+  });
+
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));
