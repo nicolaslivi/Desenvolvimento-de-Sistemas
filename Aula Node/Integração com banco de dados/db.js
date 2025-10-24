@@ -4,7 +4,7 @@ const dbConfig = {
     host: 'localhost', // Endereço do seu MySQL (geralmente 'localhost' para instalação local)
     user: 'root',      // Seu usuário do MySQL (pode ser 'root' ou outro que você configurou)
     password: 'root', // Sua senha do MySQL (SUBSTITUA PELA SUA SENHA REAL!)
-    database: 'usuariosdb', // O nome do banco de dados que criamos
+    database: 'api_aula_db', // O nome do banco de dados que criamos
     waitForConnections: true,
     connectionLimit: 10, // Define o número máximo de conexões no pool
     queueLimit: 0
