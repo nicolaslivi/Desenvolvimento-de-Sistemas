@@ -89,4 +89,26 @@ app.patch('/tarefas/status/:id', async (req, res) => {
     }
 });
 
+//7- Deletar uma das tarefas criadas.
+app.delete('/tarefas/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+  
+    if (isNaN(id)) {
+      return res.status(400).send('ID inválido. O ID deve ser um número.');
+    }
+  
+    try {
+      const [result] = await db.query('DELETE FROM tarefas WHERE id = ?', [id]);
+  
+      if (result.affectedRows > 0) {
+        res.status(204).send();
+      } else {
+        res.status(404).send('Tarefa não encontrada para exclusão.');
+      }
+    } catch (error) {
+      console.error(`Erro ao excluir tarefa com ID ${id}:`, error);
+      res.status(500).send('Erro interno do servidor ao excluir tarefa.');
+    }
+});
+
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));       
