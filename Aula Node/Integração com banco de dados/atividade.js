@@ -63,7 +63,7 @@ app.post('/tarefas', async (req, res) => {
   });
 
 //5- Verificar o status das tarefas com titulo “Exercícios”
-app.get('/status', async (req, res) => {
+app.get('/tarefas/status', async (req, res) => {
     const {status} = req.query;
     try{
         const [rows] = await db.query ('SELECT concluida FROM tarefas WHERE titulo = ?', [status]);
@@ -117,6 +117,20 @@ app.get('/tarefas/busca', async (req, res) => {
     } catch (error) {
         console.error(`Erro ao buscar tarefa com titulo ${titulo}:`, error);
         res.status(500).send('Erro interno do servidor ao buscar tarefa.');
+    }
+});
+
+//9- Faça a contagem de quantas tarefas estão concluídas e quantas tarefas estão pendentes.
+app.get('/tarefas/concluida', async (req, res) => {
+
+    try {
+        const [concluidas] = await db.query('SELECT * FROM tarefas WHERE concluida = true');
+        const [pendentes] = await db.query('SELECT * FROM tarefas WHERE concluida = false');
+       
+        res.status(200).send(`Tarefas concluidas: ${concluidas.length}\nTarefas pendentes: ${pendentes.length}`);
+    } catch (error) {
+      console.error(`Erro ao buscar status das tarefas`, error);
+      res.status(500).send('Erro interno do servidor ao buscar status das tarefas.');
     }
 });
 
