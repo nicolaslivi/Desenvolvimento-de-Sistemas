@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 //usa o formato json nas reqs - middleware
 app.use(express.json());
@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+//2- fazer a busca por todas as tarefas
 app.get('/tarefas', async (req, res) => {
     try{
         const [rows] = await db.query('SELECT * FROM tarefas');
@@ -21,6 +22,7 @@ app.get('/tarefas', async (req, res) => {
     }
 });
 
+//3- fazer a busca das tarefas por ID
 app.get('/tarefas/:id', async (req, res) => {
     const id = parseInt(req.params.id);
   
@@ -42,6 +44,7 @@ app.get('/tarefas/:id', async (req, res) => {
     }
   });
 
+//4-Inserir uma tarefa com o titulo “Exercícios” e descrição “Realizar os exercícios propostos em sala de aula”
 app.post('/tarefas', async (req, res) => {
     const { titulo, descricao, concluida } = req.body;
   
