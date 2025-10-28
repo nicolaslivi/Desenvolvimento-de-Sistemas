@@ -19,7 +19,7 @@ app.get('/tarefas', async (req, res) => {
 });
 
 //3- Fazer a busca pela tarefa por id.
-app.get('/tarefas/:id', async (req, res) => {
+app.get('/tarefas/id/:id', async (req, res) => {
     const id = parseInt(req.params.id);
   
     if (isNaN(id)) {
@@ -109,11 +109,11 @@ app.delete('/tarefas/:id', async (req, res) => {
 });
 
 //8- Faça uma busca por todas as tarefas que tenham a palavra exercício em qualquer parte do titulo.
-app.get('/tarefas/titulo/:titulo', async (req, res) => {
-    const titulo = req.params.titulo;
+app.get('/tarefas/busca', async (req, res) => {
+    const {titulo} = req.query;
     try {
-        const [busca] = await db.query('SELECT tarefas WHERE titulo = ?', [titulo]);
-        res.send(busca);
+        const [busca] = await db.query('SELECT * FROM tarefas WHERE titulo = ?', [titulo]);
+        res.status(200).send(busca);
     } catch (error) {
         console.error(`Erro ao buscar tarefa com titulo ${titulo}:`, error);
         res.status(500).send('Erro interno do servidor ao buscar tarefa.');
