@@ -84,7 +84,7 @@ app.patch('/tarefas/status/:id', async (req, res) => {
 
         res.status(200).json(tarefas[id - 1]);
     } catch (error) {
-        console.error(`Erro ao buscar ${id} em Tarefas!`);
+        console.error(`Erro ao buscar ${id} em Tarefas!`, error);
         res.status(500).send(`Erro interno do servidor ao buscar ${id}`);
     }
 });
@@ -109,12 +109,14 @@ app.delete('/tarefas/:id', async (req, res) => {
 });
 
 //8- Faça uma busca por todas as tarefas que tenham a palavra exercício em qualquer parte do titulo.
-app.get('/tarefas/:titulo', async (req, res) => {
+app.get('/tarefas/titulo/:titulo', async (req, res) => {
     const titulo = req.params.titulo;
     try {
-        
+        const [busca] = await db.query('SELECT tarefas WHERE titulo = ?', [titulo]);
+        res.send(busca);
     } catch (error) {
-        
+        console.error(`Erro ao buscar tarefa com titulo ${titulo}:`, error);
+        res.status(500).send('Erro interno do servidor ao buscar tarefa.');
     }
 });
 
