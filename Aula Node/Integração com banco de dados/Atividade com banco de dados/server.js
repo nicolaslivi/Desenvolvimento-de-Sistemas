@@ -10,7 +10,7 @@ const db = require('./db');
 //1- Tarefas: busca todas as tarefas
 app.get('/tarefas', async (req, res) => {
     try{
-        const [rows] = await db.query('SELECT * FROM aula_api_db.tarefas');
+        const [rows] = await db.query('SELECT * FROM tarefas');
         res.json(rows);
     } catch(error) {
         console.error('Erro ao buscar tarefas:', error);
