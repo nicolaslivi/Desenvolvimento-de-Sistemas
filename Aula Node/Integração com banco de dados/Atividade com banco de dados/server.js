@@ -116,7 +116,7 @@ app.get('/categorias', async (req, res) => {
     }
 });
 
-//1- Tarefas: coloca uma nova tarefa
+//2- Categorias: coloca uma nova categoria
 app.post('/categorias', async (req, res) => {
     const { nome } = req.body;
   
@@ -139,39 +139,39 @@ app.post('/categorias', async (req, res) => {
   });
 
   //1- Tarefas: atualizando tarefa por ID
-  app.put('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.idUsuario);
+  app.put('/categorias/:id', async (req, res) => {
+    const id = parseInt(req.params.idCategorias);
   
-    const { titulo, descricao, concluida } = req.body;
+    const { titulo } = req.body;
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
     }
   
-    if (titulo === undefined && descricao === undefined && concluida === undefined) {
-      return res.status(400).send('Todos os campos (título, descrição e concluída) são obrigatórios para esta atualização.');
+    if (titulo === undefined ) {
+      return res.status(400).send('Todos os campos (nome) são obrigatórios para esta atualização.');
     }
   
     try {
-      const [existingRows] = await db.query('SELECT * FROM tarefas WHERE idUsuarios = ?', [id]);
+      const [existingRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
       if (existingRows.length === 0) {
-        return res.status(404).send('Tarefa não encontrada para atualização.');
+        return res.status(404).send('Categoria não encontrada para atualização.');
       }
   
-      const query = 'UPDATE tarefas SET titulo = ?, descricao = ?, concluida = ? WHERE id = ?';
-      const params = [titulo, descricao, concluida, id];
+      const query = 'UPDATE categorias SET nome = ? WHERE id = ?';
+      const params = [nome, id];
   
       const [result] = await db.query(query, params);
   
       if (result.affectedRows > 0) {
-        const [updatedRows] = await db.query('SELECT * FROM tarefas WHERE idUsuarios = ?', [id]);
+        const [updatedRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
         res.json(updatedRows[0]);
       } else {
-        res.status(200).send('Tarefa atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
+        res.status(200).send('Categoria atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
       }
     } catch (error) {
-      console.error(`Erro ao atualizar tarefa com ID ${id}:`, error);
-      res.status(500).send('Erro interno do servidor ao atualizar tarefa.');
+      console.error(`Erro ao atualizar categoria com ID ${id}:`, error);
+      res.status(500).send('Erro interno do servidor ao atualizar categoria.');
     }
   });
 
