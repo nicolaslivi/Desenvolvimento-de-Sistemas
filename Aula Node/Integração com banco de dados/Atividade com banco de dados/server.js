@@ -46,7 +46,7 @@ app.post('/tarefas', async (req, res) => {
 
   //1- Tarefas: atualizando tarefa por ID
   app.put('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.idUsuario);
   
     const { titulo, descricao, concluida } = req.body;
   
@@ -90,7 +90,7 @@ app.post('/tarefas', async (req, res) => {
     }
   
     try {
-      const [result] = await db.query('DELETE FROM tarefas WHERE id = ?', [id]);
+      const [result] = await db.query('DELETE FROM tarefas WHERE idUsuario = ?', [id]);
   
       if (result.affectedRows > 0) {
         res.status(204).send();
