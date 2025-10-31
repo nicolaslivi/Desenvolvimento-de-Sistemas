@@ -138,7 +138,7 @@ app.post('/categorias', async (req, res) => {
     }
   });
 
-  //1- Tarefas: atualizando tarefa por ID
+  //2- Categorias: atualizando categoria por ID
   app.put('/categorias/:id', async (req, res) => {
     const id = parseInt(req.params.idCategorias);
   
@@ -175,24 +175,24 @@ app.post('/categorias', async (req, res) => {
     }
   });
 
-  //1- Tarefas: apagando tarefa por ID
-  app.delete('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.idUsuario);
+  //2- Categorias: apagando categoria por ID
+  app.delete('/categorias/:id', async (req, res) => {
+    const id = parseInt(req.params.idCategorias);
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
     }
   
     try {
-      const [result] = await db.query('DELETE FROM tarefas WHERE idUsuario = ?', [id]);
+      const [result] = await db.query('DELETE FROM categorias WHERE idCategorias = ?', [id]);
   
       if (result.affectedRows > 0) {
         res.status(204).send();
       } else {
-        res.status(404).send('Tarefa não encontrada para exclusão.');
+        res.status(404).send('Categoria não encontrada para exclusão.');
       }
     } catch (error) {
-      console.error(`Erro ao excluir tarefa com ID ${id}:`, error);
+      console.error(`Erro ao excluir categoria com ID ${id}:`, error);
       res.status(500).send('Erro interno do servidor ao excluir tarefa.');
     }
   });
