@@ -130,8 +130,8 @@ app.post('/categorias', async (req, res) => {
         [nome]
       );
   
-      const novaTarefa = { id: result.insertId, nome };
-      res.status(201).json(novaTarefa);
+      const novaCategoria = { id: result.insertId, nome };
+      res.status(201).json(novaCategoria);
     } catch (error) {
       console.error('Erro ao criar categoria:', error);
       res.status(500).send('Erro interno do servidor ao criar categoria.');
@@ -209,5 +209,33 @@ app.get('/dadosUsuarios', async (req, res) => {
         res.status(500).send('Erro interno do servidor ao buscar dados do usuario.');
     }
 });
+
+//3- Dados Usuarios: coloca um novo dado de usuário
+app.post('/dadosUsuarios', async (req, res) => {
+    const { biografia, url_foto, data_nascimento, telefone } = req.body;
+  
+    if (!biografia) {
+      return res.status(400).send('A biografia do usuário é obrigatória.');
+    } else if (!url_foto) {
+        return res.status(400).send('A URL da foto é obrigatória.');
+    } else if (!data_nascimento) {
+        return res.status(400).send('A data de nascimento do usuário é obrigatória.');
+    } else if (!telefone) {
+        return res.status(400).send('O telefone é obrigatório.');
+    }
+  
+    try {
+      const [result] = await db.query(
+        'INSERT INTO dados_usuarios (biografia, url_foto, data_nascimento, telefone) VALUES (?, ?, ?, ?)',
+        [biografia, url_foto, data_nascimento, telefone]
+      );
+  
+      const novaDados_usuarios = { id: result.insertId, biografia, url_foto, data_nascimento, telefone };
+      res.status(201).json(novaDados_usuarios);
+    } catch (error) {
+      console.error('Erro ao criar novos dados de usuário:', error);
+      res.status(500).send('Erro interno do servidor ao criar novos dados de usuário.');
+    }
+  });
 
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));
