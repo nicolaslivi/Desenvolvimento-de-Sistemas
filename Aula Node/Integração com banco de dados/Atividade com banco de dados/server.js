@@ -83,7 +83,7 @@ app.post('/tarefas', async (req, res) => {
 
   //1- Tarefas: apagando tarefa por ID
   app.delete('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.idUsuario);
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
