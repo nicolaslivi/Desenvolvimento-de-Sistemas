@@ -197,4 +197,17 @@ app.post('/categorias', async (req, res) => {
     }
   });
 
+//------------------------------------------------------------------------------------------------------------------------------
+
+//3- Dados Usuarios: busca todas os dados dos usuarios
+app.get('/dadosUsuarios', async (req, res) => {
+    try{
+        const [rows] = await db.query('SELECT * FROM dados_usuarios');
+        res.json(rows);
+    } catch(error) {
+        console.error('Erro ao buscar dados do usuario:', error);
+        res.status(500).send('Erro interno do servidor ao buscar dados do usuario.');
+    }
+});
+
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));
