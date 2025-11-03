@@ -238,4 +238,42 @@ app.post('/dadosUsuarios', async (req, res) => {
     }
   });
 
+//3- Dados Usuarios: atualiza um dado do usuário
+app.put('/dadosUsuarios/:id', async (req, res) => {
+  const id = parseInt(req.params.idUsuario);
+
+  const { titulo } = req.body;
+
+  if (isNaN(id)) {
+    return res.status(400).send('ID inválido. O ID deve ser um número.');
+  }
+
+  if (titulo === undefined ) {
+    return res.status(400).send('Todos os campos (nome) são obrigatórios para esta atualização.');
+  }
+
+  try {
+    const [existingRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
+    if (existingRows.length === 0) {
+      return res.status(404).send('Categoria não encontrada para atualização.');
+    }
+
+    const query = 'UPDATE categorias SET nome = ? WHERE id = ?';
+    const params = [nome, id];
+
+    const [result] = await db.query(query, params);
+
+    if (result.affectedRows > 0) {
+      const [updatedRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
+      res.json(updatedRows[0]);
+    } else {
+      res.status(200).send('Categoria atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
+    }
+  } catch (error) {
+    console.error(`Erro ao atualizar categoria com ID ${id}:`, error);
+    res.status(500).send('Erro interno do servidor ao atualizar categoria.');
+  }
+});
+
+
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));

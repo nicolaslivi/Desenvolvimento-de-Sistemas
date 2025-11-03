@@ -29,6 +29,20 @@ alter table tarefas
 	add constraint fk_idUsuarios
 	foreign key (fk_idUsuarios)
 	references usuarios(idUsuarios);
+    
+update tarefas set fk_idUsuarios = 1 where idTarefas = 1;
+update tarefas set fk_idUsuarios = 1 where idTarefas = 2;
+update tarefas set fk_idUsuarios = 2 where idTarefas = 3;
+update tarefas set fk_idUsuarios = 2 where idTarefas = 4;
+
+create view vw_tarefas_usuarios as
+select 
+    t.idTarefas,
+    t.titulo,
+    t.descricao,
+    t.concluida,
+    t.fk_idUsuarios as idUsuario
+from tarefas t;
 
 create table if not exists dados_usuarios (
 	biografia varchar(500) not null,
@@ -48,9 +62,9 @@ alter table dados_usuarios
 	add constraint fk_idUsuarios
 	foreign key (fk_idUsuarios)
 	references usuarios(idUsuarios);
-
-alter table dados_usuarios
-	modify fk_idUsuarios int unique;
+    
+update dados_usuarios set fk_idUsuarios = 1 limit 1;
+update dados_usuarios set fk_idUsuarios = 2 where fk_idUsuarios is null limit 1;
 
 create table if not exists categorias (
 	idCategorias int auto_increment primary key,
@@ -69,3 +83,6 @@ create table if not exists tarefas_categorias (
     constraint fk_idCategorias 
 		foreign key (idCategorias) references categorias(idCategorias)
 );
+
+INSERT INTO tarefas_categorias (idTarefas, idCategorias)
+VALUES (1, 1);
