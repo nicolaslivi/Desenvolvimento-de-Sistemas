@@ -18,6 +18,19 @@ app.get('/tarefas', async (req, res) => {
     }
 });
 
+//1- Tarefas: busca todas as tarefas de um usuário
+app.get('/tarefas', async (req, res) => {
+  const {id} = req.query;
+
+  try{
+      const [rows] = await db.query('SELECT FROM tarefas WHERE fk_idUsuarios = ?', [id]);
+      res.json(rows);
+  } catch(error) {
+      console.error('Erro ao buscar tarefas:', error);  
+      res.status(500).send('Erro interno do servidor ao buscar tarefas.');
+  }
+});
+
 //1- Tarefas: coloca uma nova tarefa
 app.post('/tarefas', async (req, res) => {
     const { titulo, descricao, concluida } = req.body;
