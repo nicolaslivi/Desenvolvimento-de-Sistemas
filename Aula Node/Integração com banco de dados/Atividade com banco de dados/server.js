@@ -240,9 +240,9 @@ app.post('/dadosUsuarios', async (req, res) => {
 
 //3- Dados Usuarios: atualiza um dado do usuário
 app.put('/dadosUsuarios/:id', async (req, res) => {
-  const id = parseInt(req.params.idUsuario);
+  const id = parseInt(req.params.fk_idUsuario);
 
-  const { titulo } = req.body;
+  const { biografia, url_foto, data_nascimento, telefone } = req.body;
 
   if (isNaN(id)) {
     return res.status(400).send('ID inválido. O ID deve ser um número.');
@@ -253,12 +253,12 @@ app.put('/dadosUsuarios/:id', async (req, res) => {
   }
 
   try {
-    const [existingRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
+    const [existingRows] = await db.query('SELECT * FROM dados_usuarios WHERE fk_idUsuario = ?', [id]);
     if (existingRows.length === 0) {
-      return res.status(404).send('Categoria não encontrada para atualização.');
+      return res.status(404).send('Dados não encontrados para atualização.');
     }
 
-    const query = 'UPDATE categorias SET nome = ? WHERE id = ?';
+    const query = 'UPDATE dados_usuarios SET nome = ? WHERE id = ?';
     const params = [nome, id];
 
     const [result] = await db.query(query, params);
