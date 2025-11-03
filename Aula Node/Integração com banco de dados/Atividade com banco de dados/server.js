@@ -46,7 +46,7 @@ app.post('/tarefas', async (req, res) => {
 
   //1- Tarefas: atualizando tarefa por ID
   app.put('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.idUsuario);
+    const id = parseInt(req.params.id);
   
     const { titulo, descricao, concluida } = req.body;
   
@@ -59,18 +59,18 @@ app.post('/tarefas', async (req, res) => {
     }
   
     try {
-      const [existingRows] = await db.query('SELECT * FROM tarefas WHERE idUsuarios = ?', [id]);
+      const [existingRows] = await db.query('SELECT * FROM tarefas WHERE idTarefas = ?', [id]);
       if (existingRows.length === 0) {
         return res.status(404).send('Tarefa não encontrada para atualização.');
       }
   
-      const query = 'UPDATE tarefas SET titulo = ?, descricao = ?, concluida = ? WHERE id = ?';
+      const query = 'UPDATE tarefas SET titulo = ?, descricao = ?, concluida = ? WHERE idTarefas = ?';
       const params = [titulo, descricao, concluida, id];
   
       const [result] = await db.query(query, params);
   
       if (result.affectedRows > 0) {
-        const [updatedRows] = await db.query('SELECT * FROM tarefas WHERE idUsuarios = ?', [id]);
+        const [updatedRows] = await db.query('SELECT * FROM tarefas WHERE idTarefas = ?', [id]);
         res.json(updatedRows[0]);
       } else {
         res.status(200).send('Tarefa atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
@@ -83,7 +83,7 @@ app.post('/tarefas', async (req, res) => {
 
   //1- Tarefas: apagando tarefa por ID
   app.delete('/tarefas/:id', async (req, res) => {
-    const id = parseInt(req.params.idUsuario);
+    const id = parseInt(req.params.id);
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
@@ -140,15 +140,15 @@ app.post('/categorias', async (req, res) => {
 
   //2- Categorias: atualizando categoria por ID
   app.put('/categorias/:id', async (req, res) => {
-    const id = parseInt(req.params.idCategorias);
+    const id = parseInt(req.params.id);
   
-    const { titulo } = req.body;
+    const { nome } = req.body;
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
     }
   
-    if (titulo === undefined ) {
+    if (nome === undefined ) {
       return res.status(400).send('Todos os campos (nome) são obrigatórios para esta atualização.');
     }
   
@@ -158,7 +158,7 @@ app.post('/categorias', async (req, res) => {
         return res.status(404).send('Categoria não encontrada para atualização.');
       }
   
-      const query = 'UPDATE categorias SET nome = ? WHERE id = ?';
+      const query = 'UPDATE categorias SET nome = ? WHERE idCategorias = ?';
       const params = [nome, id];
   
       const [result] = await db.query(query, params);
@@ -177,7 +177,7 @@ app.post('/categorias', async (req, res) => {
 
   //2- Categorias: apagando categoria por ID
   app.delete('/categorias/:id', async (req, res) => {
-    const id = parseInt(req.params.idCategorias);
+    const id = parseInt(req.params.id);
   
     if (isNaN(id)) {
       return res.status(400).send('ID inválido. O ID deve ser um número.');
@@ -193,7 +193,7 @@ app.post('/categorias', async (req, res) => {
       }
     } catch (error) {
       console.error(`Erro ao excluir categoria com ID ${id}:`, error);
-      res.status(500).send('Erro interno do servidor ao excluir tarefa.');
+      res.status(500).send('Erro interno do servidor ao excluir categoria.');
     }
   });
 
@@ -240,7 +240,7 @@ app.post('/dadosUsuarios', async (req, res) => {
 
 //3- Dados Usuarios: atualiza um dado do usuário
 app.put('/dadosUsuarios/:id', async (req, res) => {
-  const id = parseInt(req.params.fk_idUsuario);
+  const id = parseInt(req.params.id);
 
   const { biografia, url_foto, data_nascimento, telefone } = req.body;
 
@@ -248,32 +248,53 @@ app.put('/dadosUsuarios/:id', async (req, res) => {
     return res.status(400).send('ID inválido. O ID deve ser um número.');
   }
 
-  if (titulo === undefined ) {
-    return res.status(400).send('Todos os campos (nome) são obrigatórios para esta atualização.');
+  if (biografia === undefined || url_foto === undefined || data_nascimento === undefined || telefone === undefined ) {
+    return res.status(400).send('Todos os campos (biografia, url_foto, data_nascimento e telefone) são obrigatórios para esta atualização.');
   }
 
   try {
-    const [existingRows] = await db.query('SELECT * FROM dados_usuarios WHERE fk_idUsuario = ?', [id]);
+    const [existingRows] = await db.query('SELECT * FROM dados_usuarios WHERE fk_idUsuarios = ?', [id]);
     if (existingRows.length === 0) {
       return res.status(404).send('Dados não encontrados para atualização.');
     }
 
-    const query = 'UPDATE dados_usuarios SET nome = ? WHERE id = ?';
-    const params = [nome, id];
+    const query = 'UPDATE dados_usuarios SET biografia = ?, url_foto = ?, data_nascimento = ?, telefone = ? WHERE fk_idUsuarios = ?';
+    const params = [biografia, url_foto, data_nascimento, telefone, id];
 
     const [result] = await db.query(query, params);
 
     if (result.affectedRows > 0) {
-      const [updatedRows] = await db.query('SELECT * FROM categorias WHERE idCategorias = ?', [id]);
+      const [updatedRows] = await db.query('SELECT * FROM dados_usuarios WHERE fk_idUsuarios = ?', [id]);
       res.json(updatedRows[0]);
     } else {
-      res.status(200).send('Categoria atualizada, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
+      res.status(200).send('Dados atualizados, mas nenhum dado foi alterado (os dados fornecidos eram idênticos aos existentes).');
     }
   } catch (error) {
-    console.error(`Erro ao atualizar categoria com ID ${id}:`, error);
-    res.status(500).send('Erro interno do servidor ao atualizar categoria.');
+    console.error(`Erro ao atualizar dados com ID de usuário ${id}:`, error);
+    res.status(500).send('Erro interno do servidor ao atualizar dados do usuário.');
   }
 });
 
+//3- Dados Usuarios: deletando um dado do usuário por ID
+app.delete('/dadosUsuarios/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+
+  if (isNaN(id)) {
+    return res.status(400).send('ID inválido. O ID deve ser um número.');
+  }
+
+  try {
+    const [result] = await db.query('DELETE FROM dados_usuarios WHERE fk_idUsuarios = ?', [id]);
+
+    if (result.affectedRows > 0) {
+      res.status(204).send();
+    } else {
+      res.status(404).send('Dados de usuário não encontrados para exclusão.');
+    }
+  } catch (error) {
+    console.error(`Erro ao excluir dados do usuário com ID ${id}:`, error);
+    res.status(500).send('Erro interno do servidor ao excluir dados do usuário.');
+  }
+});
 
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));
