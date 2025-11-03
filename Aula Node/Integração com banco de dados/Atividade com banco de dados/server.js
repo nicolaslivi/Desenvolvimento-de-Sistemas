@@ -103,7 +103,7 @@ app.post('/tarefas', async (req, res) => {
     }
   
     try {
-      const [result] = await db.query('DELETE FROM tarefas WHERE idUsuario = ?', [id]);
+      const [result] = await db.query('DELETE FROM tarefas WHERE idTarefas = ?', [id]);
   
       if (result.affectedRows > 0) {
         res.status(204).send();
