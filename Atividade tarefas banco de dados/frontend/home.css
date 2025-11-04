@@ -1,0 +1,27 @@
+* {
+    font-family: Embed code;
+    margin: 0%;
+}
+
+main{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.barraLateral{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 20vw;
+    height: 100vh;
+}
+
+.conteudoPrincipalTarefas {
+    width: 80vw;
+    height: 100vw;
+}
+
+.iconeConta {
+    
+}
