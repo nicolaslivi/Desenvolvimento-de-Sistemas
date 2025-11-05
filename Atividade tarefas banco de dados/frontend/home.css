@@ -22,7 +22,7 @@ main{
 
 .menus-container{
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     width: 15vw;
     height: 5vh;
