@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+body {
+    height: 100vh;
+}
+
 main{
     display: flex;
     justify-content: start;
@@ -18,23 +22,60 @@ main{
     height: 100vh;
     background-color: rgb(35, 40, 38);
     flex-direction: column;
+    color: whitesmoke;
 }
 
-.menus-container{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 15vw;
-    height: 5vh;
-    color: white;
-    font-size: 10px;
-}
-
-.menus-container-dadosUsurio{
+.header-container{
+    height: 10vh;
+    width: 20vw;
     display: flex;
     justify-content: start;
     align-items: center;
-    flex-direction: column;
+}
+
+.logoSuperiorEsquerdo{
+    height: 8vh;
+    width: auto;
+    margin-left: 2px;
+}
+
+.nomeLogo-container{
+    height: 5vh;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.separador{
+    height: 0.2vh;
+    width: 18vw;
+    background-color: rgb(79, 82, 80);
+}
+
+.menus-container{
+    height: 8vh;
+    width: 20vw;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.menus-container:hover{
+    background-color: rgb(79, 82, 80);
+    cursor: pointer;
+}
+
+.iconMenus{
+    height: 4vh;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .conteudoPrincipalTarefas {
