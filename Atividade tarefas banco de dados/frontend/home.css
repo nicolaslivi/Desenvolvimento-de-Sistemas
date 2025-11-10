@@ -108,23 +108,23 @@ main{
 }
 .divisaoNovaTarefaBaixo{
     width: 72vw;
-    height: 30vh;
+    height: 20vh;
     display: flex;
     flex-direction: row;
 }
 
 .digitaTitulo{
     width: 36vw;
-    height: 30vh;
+    height: 20vh;
 }
 
 .digitaDescricao{
     width: 36vw;
-    height: 30vh;
+    height: 20vh;
 }
 
-#caixaTexto{
-    width: 32vw;
+.caixaDeTexto{
+    width: 30vw;
     height: 8vh;
     margin-left: 4vh;
     margin-top: 1vh;
@@ -133,4 +133,72 @@ main{
     background-color: rgb(35, 40, 38);
     font-size: 10px;
     padding-left: 8px;
+}
+
+.posicionaBotaoAdicionar {
+    width: 72vw;
+    height: 8vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.botaoAdicionar {
+    width: 8vw;
+    height: 6vh;
+    background-color: rgb(106, 207, 157);
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    transition: 0.4s;
+}
+
+.botaoAdicionar:hover {
+    cursor: pointer;
+    background-color: rgb(172, 242, 215);
+}
+
+.tarefasCriadas {
+    width: 72vw;
+    height: 8vh;
+    background-color: rgb(35, 40, 38);
+    margin-left: 4vw;
+    margin-top: 4vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tarefasCriadas-checkbox{
+    width: 4vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarefasCriadas-tituloDescricao{
+    width: 60vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.tarefasCriadas-edit{
+    width: 4vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarefasCriadas-delete{
+    width: 4vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
