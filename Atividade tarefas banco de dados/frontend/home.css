@@ -102,8 +102,35 @@ main{
     border-radius: 10px;
 }
 
-.divisaoNovaTarefa {
+.divisaoNovaTarefaCima {
+    width: 72vw;
+    height: 5vh;
+}
+.divisaoNovaTarefaBaixo{
+    width: 72vw;
+    height: 30vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
 
+.digitaTitulo{
+    width: 36vw;
+    height: 30vh;
+}
+
+.digitaDescricao{
+    width: 36vw;
+    height: 30vh;
+}
+
+#caixaTexto{
+    width: 32vw;
+    height: 8vh;
+    margin-left: 4vh;
+    margin-top: 1vh;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    background-color: rgb(35, 40, 38);
+    font-size: 10px;
+    padding-left: 8px;
 }
