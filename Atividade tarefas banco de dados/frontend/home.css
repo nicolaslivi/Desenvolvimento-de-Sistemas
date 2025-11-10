@@ -1,6 +1,7 @@
 * {
     font-family: 'Manrope', sans-serif;
     margin: 0%;
+    color: whitesmoke;
 }
 
 body {
@@ -80,5 +81,29 @@ main{
 
 .conteudoPrincipalTarefas {
     width: 80vw;
-    height: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+
+.titulo-container{
+    margin-top: 4vh;
+    margin-left: 4vw;
+}
+
+.novaTarefa-container{
+    background-color: rgb(35, 40, 38);
+    margin-left: 4vw;
+    margin-top: 6vh;
+    width: 72vw;
+    height: 35vh;
+    border-radius: 10px;
+}
+
+.divisaoNovaTarefa {
+    display: flex;
+    flex-direction: column;
+
 }
