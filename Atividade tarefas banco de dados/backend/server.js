@@ -316,8 +316,23 @@ app.delete('/dadosUsuarios/:id', async (req, res) => {
 const sessions = new Map();
 
 function generateSessionId(){
-  return crypto
+  return crypto.randomBytes(24).toString("hex");
 }
+
+function authenticate (req, res, next) {
+  const token = req.headers["authorization"];
+  if (!token) return res.status(401).send("Sessão não informada");
+  const session = sessions.get(token);
+  if(!session) return res.status(401).send("Sessão inválida");
+  req.user = { id: session.userId, email: session.email};
+  next();
+}
+
+app.post("/logout", authenticate, (req, res) => {
+  const token = req.headers["authorization"];
+  if(token && sessions.has(token)) sessions.delete(token);
+  return res.sendStatus(204);
+});
 
 app.post('/login', async (req, res) => {
   const {email, senha} = req.body;
