@@ -183,8 +183,9 @@ main{
     width: 60vw;
     height: 8vh;
     display: flex;
-    align-items: center;
-    justify-content: start;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .tarefasCriadas-edit{
@@ -193,6 +194,12 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.7s;
+}
+
+.tarefasCriadas-edit:hover{
+    background-color: rgb(79, 82, 80);
+    border-radius: 10px; 
 }
 
 .tarefasCriadas-delete{
@@ -201,4 +208,9 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tarefasCriadas-delete:hover{
+    background-color: rgb(79, 82, 80);
+    border-radius: 10px; 
 }

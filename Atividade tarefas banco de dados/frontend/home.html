@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Special+Gothic:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Gerenciador de Tarefas</title>
 </head>
 
@@ -50,6 +51,10 @@
                 <img class="iconMenus" src="/Atividade tarefas banco de dados/assets/settings_icon.png" alt="">
                 <p>Configurações</p>
             </div>
+            <div class="menus-container">
+                <img class="iconMenus" src="/Atividade tarefas banco de dados/assets/logout_icon.png" alt="">
+                <p>Sair</p>
+            </div>
         </div>
         <!-- conteudo das tarefas -->
         <div class="conteudoPrincipalTarefas">
@@ -80,18 +85,36 @@
                 <div class="tarefasCriadas-checkbox">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate">
-                        <label class="form-check-label" for="checkIndeterminate">
-                        </label>
+                        <label class="form-check-label" for="checkIndeterminate"></label>
                       </div>
                 </div>
                 <div class="tarefasCriadas-tituloDescricao">
-
+                    <h4>Estudar node.js</h4>
+                    <p style="font-size: 10px;">Revisar todos os conteúdos de node.js aprendidos em sala de aula e buscar videoaulas no youtube</p>
                 </div>
                 <div class="tarefasCriadas-edit">
-
+                    <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
                 </div>
                 <div class="tarefasCriadas-delete">
-
+                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+                </div>
+            </div>
+            <div class="tarefasCriadas">
+                <div class="tarefasCriadas-checkbox">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate">
+                        <label class="form-check-label" for="checkIndeterminate"></label>
+                    </div>
+                </div>
+                <div class="tarefasCriadas-tituloDescricao">
+                    <h4>Estudar javascript</h4>
+                    <p style="font-size: 10px;">Ler a documentação do javascript</p>
+                </div>
+                <div class="tarefasCriadas-edit">
+                    <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                </div>
+                <div class="tarefasCriadas-delete">
+                    <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
                 </div>
             </div>
         </div>

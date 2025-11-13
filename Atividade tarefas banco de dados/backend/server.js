@@ -310,4 +310,38 @@ app.delete('/dadosUsuarios/:id', async (req, res) => {
   }
 });
 
+//------------------------------------------------------------------------------------------------------------------------------
+//Linkando com o frontend
+
+const sessions = new Map();
+
+app.post('/login', async (req, res) => {
+  const {email, senha} = req.body;
+  if(!email || !senha)
+    return res.status(400).send('Email e senha são obrigatórios!');
+
+  try{
+    const [rows] = await db.query(
+      "SELECT idUsuario, nome, email, senha FROM usuarios WHERE email = ?",
+      [email]
+    );
+
+    if(rows.length === 0 || rows[0].senha !== senha)
+      return res.status(401).send('Credenciais inválidas!');
+
+    const user = rows[0];
+
+    const sessionId = generateSessionId();
+
+    sessions.set(sessionId, {userId: user.idUsuario, email: user.email });
+
+    return res.send({
+      sessionId,
+      user: {id: user.idUsuario, nome: user.nome, email: user.email},
+    });
+  } catch (err) {
+    return res.status(500).send('Erro interno do servidor');
+  }
+})
+
 app.listen(port, () => console.log(`Rodando aqui http://localhost:${port}`));
