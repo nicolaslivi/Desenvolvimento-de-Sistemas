@@ -200,6 +200,7 @@ main{
 .tarefasCriadas-edit:hover{
     background-color: rgb(79, 82, 80);
     border-radius: 10px; 
+    cursor: pointer;
 }
 
 .tarefasCriadas-delete{
@@ -213,4 +214,5 @@ main{
 .tarefasCriadas-delete:hover{
     background-color: rgb(79, 82, 80);
     border-radius: 10px; 
+    cursor: pointer;
 }

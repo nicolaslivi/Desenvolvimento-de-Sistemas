@@ -315,6 +315,10 @@ app.delete('/dadosUsuarios/:id', async (req, res) => {
 
 const sessions = new Map();
 
+function generateSessionId(){
+  return crypto
+}
+
 app.post('/login', async (req, res) => {
   const {email, senha} = req.body;
   if(!email || !senha)

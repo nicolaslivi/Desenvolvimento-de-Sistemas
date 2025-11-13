@@ -10,6 +10,11 @@ insert into usuarios (nome, email) values
 ('Nicolas Rodolfo Liviera', 'nicolasrlivi@gmail.com'),
 ('Julia Filipp', 'juliafilipp13@gmail.com');
 
+alter table usuarios add column senha varchar(255);
+
+update usuarios set senha = '1234' where idUsuarios = 1;
+update usuarios set senha = '1234' where idUsuarios = 2;
+
 create table if not exists tarefas (
 	idTarefas int auto_increment primary key,
     titulo varchar(255) not null,
