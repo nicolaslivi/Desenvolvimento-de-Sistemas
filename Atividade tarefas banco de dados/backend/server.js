@@ -341,7 +341,7 @@ app.post('/login', async (req, res) => {
 
   try{
     const [rows] = await db.query(
-      "SELECT idUsuario, nome, email, senha FROM usuarios WHERE email = ?",
+      "SELECT idUsuarios, nome, email, senha FROM usuarios WHERE email = ?",
       [email]
     );
 
@@ -352,11 +352,11 @@ app.post('/login', async (req, res) => {
 
     const sessionId = generateSessionId();
 
-    sessions.set(sessionId, {userId: user.idUsuario, email: user.email });
+    sessions.set(sessionId, {userId: user.idUsuarios, email: user.email });
 
     return res.send({
       sessionId,
-      user: {id: user.idUsuario, nome: user.nome, email: user.email},
+      user: {id: user.idUsuarios, nome: user.nome, email: user.email},
     });
   } catch (err) {
     return res.status(500).send('Erro interno do servidor');
