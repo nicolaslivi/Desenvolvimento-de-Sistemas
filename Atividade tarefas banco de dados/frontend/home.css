@@ -88,15 +88,59 @@ main{
     flex-direction: column;
 }
 
+.divisaoTituloBusca{
+    width: 80vw;
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#busca{
+    width: 25vw;
+    height: 5vh;
+    background-color: rgb(35, 40, 38);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    padding-left: 10px;
+    display: flex;
+    position: absolute;
+}
+
+.posicionarBuscaInput{
+    width: 224.5px;
+    height: 35.65px;
+    margin-top: 7vh;
+    margin-right: 15vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#lupaIcon{  
+    left: 325px;
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+}
+
 .titulo-container{
+    width: 40vw;
     margin-top: 4vh;
     margin-left: 4vw;
+}
+
+.busca-container{
+    width: 40vw;
+    height: 18vh;
+    display: flex;
+    justify-content: end;
+    align-items: start;
 }
 
 .novaTarefa-container{
     background-color: rgb(35, 40, 38);
     margin-left: 4vw;
-    margin-top: 6vh;
+    margin-top: 4vh;
     width: 72vw;
     height: 35vh;
     border-radius: 10px;
